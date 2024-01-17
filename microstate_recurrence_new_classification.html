@@ -39,7 +39,7 @@
 									<h2 id="dataset"><strong>Dataset</strong></h2>
 <p>Microstates analysis returns a backfitted sequence of stable patterns of EEG activity on the level of the scalp. Having this sequence for each subject, one can transform it into recurrence matrix of the states in order to obtain the parameters of the recurrence quantification analysis (RQA) (Figure 1).</p>
 <center><img src="images/microstates_prototype_classification/S10W1_modkmean16_microstates_colorprots_2sec_split_prots_new.png" alt="recurrence prototypes" width="1000"></center>
-<left><i>Figure 1.</i>: Exemplary recurrence matrix from sequence of microstates prototypes of 0-2 s interval.
+<left><p><i>Figure 1.</i>: Exemplary recurrence matrix from sequence of microstates prototypes of 0-2 s interval.</p>
 
 <p>For each prototype, RQA values are calculated by selecting only the occurences of one prototype and assigning the ones while zeroing the occurences of others. Thus, after the analysis 240 RQA values are obtained (16 prototypes x 15 parameters) for each of the 84 participants (45 schizophrenic and 39 healthy).</p>
 <table>
@@ -133,15 +133,15 @@
 </tbody>
 </table>
 <p><i>Table 1.</i>: First five rows of the dataset of RQA parameters from microstates prototypes. The values were cleaned from the outliers and normalized (see below).</p>
-<h3 id="preprocessing"><strong>Preprocessing</strong></h3>
+<h2 id="preprocessing"><strong>Preprocessing</strong></h2>
 <p>Before the analysis the dataset was checked for the presence of outliers, which could potentialy bias the final results. For this purpose, IQR method was used which defines as outliers values outside:</p>
 <p>- <strong>lower threshold</strong>: Q1 - 1.5xIQR</p>
 <p>- <strong>upper threshold</strong>: Q3 + 1.5×IQR</p>
 <p>The identified outliers were replaced by the median value of the coresponding RQA parameter. Afterwards, the values were normalized using the <strong>minmax</strong> method which transform the values to the <em><strong>range: 0-1</strong></em>.</p>
 <left>
-<h3 id="group-prototypes"><strong>Group prototypes</strong></h3>
+<h2 id="group-prototypes"><strong>Group prototypes</strong></h2>
 <p>The first step is to prepare the prototypes for each group so that we can use them as a reference for the RQA vector of each individual. The prototypes are calculated by averaging RQA values within each group.</p>
-<h3 id="feature-dataset"><strong>Feature dataset</strong></h3>
+<h2 id="feature-dataset"><strong>Feature dataset</strong></h2>
 <p>Prototypes are then compared with the individual RQA parameter values using three similarity measures:</p>
 <ol>
 <li>
@@ -223,9 +223,9 @@
 </table>
 <p><i>Table 2.</i>: First five rows of the exemplary values of the similarity measures used as features for classification</p></left>
 <center><img src="images/microstates_prototype_classification/feature_scatter_correlation.png" alt="features scatter" width="1000"></center>
-<left><i>Figure 2.</i>: Correlation values between each individual vector and schizophrenic as well as healthy prototypes.
+<p><i>Figure 2.</i>: Correlation values between each individual vector and schizophrenic as well as healthy prototypes.</p>
 
-<h3 id="rqa-parameters-selection"><strong>RQA parameters selection</strong></h3>
+<h2 id="rqa-parameters-selection"><strong>RQA parameters selection</strong></h2>
 <p>Additionally, the selection of the RQA parameters was performed to find values significant for the distinction between healthy and schizophrenic groups. The intuition is to select those parameters which are helpful for the further classification and discard those which introduce noise into the dataset. The following approaches were tested:</p>
 <p>1. <strong>Absolute difference between the prototypes</strong>: prototypes for healthy and schizophrenic groups were subtracted from each other. The fraction of the highest absolute difference values were used for the similarity calculations. Here, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> highest values were tested.</p>
 <p>2. <strong>Statistical tests</strong>: to find the parameters values which differ significantly between healthy and schizophrenic groups, two statistical tests were used: <em><strong>t-test</strong></em> and <em><strong>U Mann-Whitney test</strong></em>. Since hundreds of parameters were tested, corrections for multiple comparisons were used: <em><strong>Bonferroni</strong></em> and <em><strong>Benjamini-Hochberg FDR</strong></em>. In total using this approach 4 possible combinations of selected parameters were tested.</p>
@@ -374,7 +374,7 @@
 <p><i>Table 3.2.</i>: Summary of the highest mean accuracy scores across all used classifiers and selection method using features from euclidean distance metric.</p>
 <ul>
 <li>
-<h3 id="cosine-distance"><strong>Cosine distance</strong></h3>
+<h2 id="cosine-distance"><strong>Cosine distance</strong></h2>
 </li>
 </ul>
 <table>
@@ -501,7 +501,7 @@
 <p><i>Table 4.2.</i>: Summary of the highest mean accuracy scores across all used classifiers and selection method using features from cosine distance metric.</p>
 <ul>
 <li>
-<h3 id="correlation-metric"><strong>Correlation metric</strong></h3>
+<h2 id="correlation-metric"><strong>Correlation metric</strong></h2>
 </li>
 </ul>
 <table>
