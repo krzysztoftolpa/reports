@@ -1,29 +1,47 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
+<!--
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
+	<head>
+		<title>Microstates RQA Classification</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
 
-<head>
-	<title>Microstates RQA classification</title>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-</head>
-<body>
-  <script>
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
-          ? 'dark'
-          : 'default'
-    });
-  </script>
-<h1 id="classification-between-healthy-and-schizophrenia-groups-using-rqa-values-from-microstates-prototypes">Classification between Healthy and Schizophrenia groups using RQA values from microstates prototypes</h1>
-<h2 id="dataset"><strong>Dataset</strong></h2>
-<h3 id="microstates-analysis-returns-a-backfitted-sequence-of-stable-patterns-of-eeg-activity-on-the-level-of-the-scalp-having-this-sequence-for-each-subject-one-can-transform-it-into-recurrence-matrix-of-the-states-in-order-to-obtain-the-parameters-of-the-recurrence-quantification-analysis-rqa-figure-1">Microstates analysis returns a backfitted sequence of stable patterns of EEG activity on the level of the scalp. Having this sequence for each subject, one can transform it into recurrence matrix of the states in order to obtain the parameters of the recurrence quantification analysis (RQA) (Figure 1).</h3>
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Neuroscience reports</a></h1>
+						
+					</header>
+
+				<!-- Wrapper -->
+					<section id="wrapper">
+						<header>
+							<div class="inner">
+								<h2>Microstates RQA Classification</h2>
+								<p>Classification between Healthy and Schizophrenia groups using RQA values from microstates prototypes</p>
+							</div>
+						</header>
+
+						<!-- Content -->
+							<div class="wrapper">
+								<div class="inner">
+
+									<h2 id="dataset"><strong>Dataset</strong></h2>
+<p>Microstates analysis returns a backfitted sequence of stable patterns of EEG activity on the level of the scalp. Having this sequence for each subject, one can transform it into recurrence matrix of the states in order to obtain the parameters of the recurrence quantification analysis (RQA) (Figure 1).</p>
 <center><img src="images/microstates_prototype_classification/S10W1_modkmean16_microstates_colorprots_2sec_split_prots_new.png" alt="recurrence prototypes" width="450"><center>
 Figure 1: Exemplary recurrence matrix from sequence of microstates prototypes of 0-2 s interval.
 <left>
-<h3 id="for-each-prototype-rqa-values-are-calculated-by-selecting-only-the-occurences-of-one-prototype-and-assigning-the-ones-while-zeroing-the-occurences-of-others-thus-after-the-analysis-240-rqa-values-are-obtained-16-prototypes-x-15-parameters-for-each-of-the-84-participants-45-schizophrenic-and-39-healthy">For each prototype, RQA values are calculated by selecting only the occurences of one prototype and assigning the ones while zeroing the occurences of others. Thus, after the analysis 240 RQA values are obtained (16 prototypes x 15 parameters) for each of the 84 participants (45 schizophrenic and 39 healthy).</h3>
+<p>For each prototype, RQA values are calculated by selecting only the occurences of one prototype and assigning the ones while zeroing the occurences of others. Thus, after the analysis 240 RQA values are obtained (16 prototypes x 15 parameters) for each of the 84 participants (45 schizophrenic and 39 healthy).</p>
 <table>
 <thead>
 <tr>
@@ -115,28 +133,28 @@ Figure 1: Exemplary recurrence matrix from sequence of microstates prototypes of
 </tbody>
 </table>
 <p>Table 1: First five rows of the dataset of RQA parameters from microstates prototypes. The values were cleaned from the outliers and normalized (see below).</p>
-<h2 id="preprocessing"><strong>Preprocessing</strong></h2>
-<h3 id="before-the-analysis-the-dataset-was-checked-for-the-presence-of-outliers-which-could-potentialy-bias-the-final-results-for-this-purpose-iqr-method-was-used-which-defines-as-outliers-values-outside">Before the analysis the dataset was checked for the presence of outliers, which could potentialy bias the final results. For this purpose, IQR method was used which defines as outliers values outside:</h3>
-<h3 id="lower-threshold-q1---15xiqr">- <strong>lower threshold</strong>: Q1 - 1.5xIQR</h3>
-<h3 id="upper-threshold-q3--15%C3%97iqr">- <strong>upper threshold</strong>: Q3 + 1.5×IQR</h3>
-<h3 id="the-identified-outliers-were-replaced-by-the-median-value-of-the-coresponding-rqa-parameter-afterwards-the-values-were-normalized-using-the-minmax-method-which-transform-the-values-to-the-range-0-1">The identified outliers were replaced by the median value of the coresponding RQA parameter. Afterwards, the values were normalized using the <strong>minmax</strong> method which transform the values to the <em><strong>range: 0-1</strong></em>.</h3>
+<h3 id="preprocessing"><strong>Preprocessing</strong></h3>
+<p>Before the analysis the dataset was checked for the presence of outliers, which could potentialy bias the final results. For this purpose, IQR method was used which defines as outliers values outside:</p>
+<p>- <strong>lower threshold</strong>: Q1 - 1.5xIQR</p>
+<p>- <strong>upper threshold</strong>: Q3 + 1.5×IQR</p>
+<p>The identified outliers were replaced by the median value of the coresponding RQA parameter. Afterwards, the values were normalized using the <strong>minmax</strong> method which transform the values to the <em><strong>range: 0-1</strong></em>.</p>
 <left>
-<h2 id="group-prototypes"><strong>Group prototypes</strong></h2>
-<h3 id="the-first-step-is-to-prepare-the-prototypes-for-each-group-so-that-we-can-use-them-as-a-reference-for-the-rqa-vector-of-each-individual-the-prototypes-are-calculated-by-averaging-rqa-values-within-each-group">The first step is to prepare the prototypes for each group so that we can use them as a reference for the RQA vector of each individual. The prototypes are calculated by averaging RQA values within each group.</h3>
-<h2 id="feature-dataset"><strong>Feature dataset</strong></h2>
-<h3 id="prototypes-are-then-compared-with-the-individual-rqa-parameter-values-using-three-similarity-measures">Prototypes are then compared with the individual RQA parameter values using three similarity measures:</h3>
+<h3 id="group-prototypes"><strong>Group prototypes</strong></h3>
+<p>The first step is to prepare the prototypes for each group so that we can use them as a reference for the RQA vector of each individual. The prototypes are calculated by averaging RQA values within each group.</p>
+<h3 id="feature-dataset"><strong>Feature dataset</strong></h3>
+<p>Prototypes are then compared with the individual RQA parameter values using three similarity measures:</p>
 <ol>
 <li>
-<h3 id="euclidean-distance-ranges-from-0---absolute-identity-to-some-maximum-possible-discrepancy-value"><strong>Euclidean Distance</strong>: ranges from 0 - absolute identity to some maximum possible discrepancy value</h3>
+<p><strong>Euclidean Distance</strong>: ranges from 0 - absolute identity to some maximum possible discrepancy value</p>
 </li>
 <li>
-<h3 id="cosine-distance-ranges-from-0-to-2-0---identical-vectors-1---no-correlation-2---absolutely-different"><strong>Cosine Distance</strong>: ranges from 0 to 2, 0 - identical vectors, 1 - no correlation, 2 - absolutely different.</h3>
+<p><strong>Cosine Distance</strong>: ranges from 0 to 2, 0 - identical vectors, 1 - no correlation, 2 - absolutely different.</p>
 </li>
 <li>
-<h3 id="correlation-ranges-from--1-to-1-with-0-implying-no-correlation"><strong>Correlation</strong>: ranges from -1 to +1 with 0 implying no correlation.</h3>
+<p><strong>Correlation</strong>: ranges from -1 to +1 with 0 implying no correlation.</p>
 </li>
 </ol>
-<h3 id="the-similarity-values-both-to-healthy-and-to-schizophenic-prototype-are-used-as-the-features-for-the-classification-figure-and-table-2-note-each-metric-euclidean-cosine-and-correlation-are-used-seperately-one-at-a-time">The similarity values both to healthy and to schizophenic prototype are used as the features for the classification (Figure and Table 2). Note, each metric: euclidean, cosine and correlation are used seperately, one at a time.</h3>
+<p>The similarity values both to healthy and to schizophenic prototype are used as the features for the classification (Figure and Table 2). Note, each metric: euclidean, cosine and correlation are used seperately, one at a time.</p>
 <table>
 <thead>
 <tr>
@@ -204,31 +222,31 @@ Figure 1: Exemplary recurrence matrix from sequence of microstates prototypes of
 </tbody>
 </table>
 <p>Table 2: First five rows of the exemplary values of the similarity measures used as features for classification</p>
-<center><img src="images/microstates_prototype_classification/feature_scatter_correlation.png" alt="features scatter" width="450"><center>
+<img src="images/microstates_prototype_classification/feature_scatter_correlation.png" alt="features scatter" width="450">
 Figure 2: Correlation values between each individual vector and schizophrenic as well as healthy prototypes.
-<h2 id="rqa-parameters-selection"><strong>RQA parameters selection</strong></h2>
-<h3 id="additionally-the-selection-of-the-rqa-parameters-was-performed-to-find-values-significant-for-the-distinction-between-healthy-and-schizophrenic-groups-the-intuition-is-to-select-those-parameters-which-are-helpful-for-the-further-classification-and-discard-those-which-introduce-noise-into-the-dataset-the-following-approaches-were-tested">Additionally, the selection of the RQA parameters was performed to find values significant for the distinction between healthy and schizophrenic groups. The intuition is to select those parameters which are helpful for the further classification and discard those which introduce noise into the dataset. The following approaches were tested:</h3>
-<h3 id="1-absolute-difference-between-the-prototypes-prototypes-for-healthy-and-schizophrenic-groups-were-subtracted-from-each-other-the-fraction-of-the-highest-absolute-difference-values-were-used-for-the-similarity-calculations-here-parameters-with-20-and-10-highest-values-were-tested">1. <strong>Absolute difference between the prototypes</strong>: prototypes for healthy and schizophrenic groups were subtracted from each other. The fraction of the highest absolute difference values were used for the similarity calculations. Here, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> highest values were tested.</h3>
-<h3 id="2-statistical-tests-to-find-the-parameters-values-which-differ-significantly-between-healthy-and-schizophrenic-groups-two-statistical-tests-were-used-t-test-and-u-mann-whitney-test-since-hundreds-of-parameters-were-tested-corrections-for-multiple-comparisons-were-used-bonferroni-and-benjamini-hochberg-fdr-in-total-using-this-approach-4-possible-combinations-of-selected-parameters-were-tested">2. <strong>Statistical tests</strong>: to find the parameters values which differ significantly between healthy and schizophrenic groups, two statistical tests were used: <em><strong>t-test</strong></em> and <em><strong>U Mann-Whitney test</strong></em>. Since hundreds of parameters were tested, corrections for multiple comparisons were used: <em><strong>Bonferroni</strong></em> and <em><strong>Benjamini-Hochberg FDR</strong></em>. In total using this approach 4 possible combinations of selected parameters were tested.</h3>
-<h3 id="3-fishers-score-calculated-as-the-ratio-of-between-group-and-within-group-variance-a-higher-fishers-score-implies-the-parameter-is-more-discriminative-and-valuable-for-classification-fraction-of-the-parameters-with-the-highest-rank-were-chosen-here-20-and-10-the-implementation-from-skfeaturefunctionsimilaritybased-was-used">3. <strong>Fisher's score</strong>: calculated as the ratio of between-group and within-group variance. A higher Fisher's Score implies the parameter is more discriminative and valuable for classification. Fraction of the parameters with the <em><strong>highest rank</strong></em> were chosen, here <em><strong>20%</strong></em> and <em><strong>10%</strong></em>. The implementation from <code>skfeature.function.similarity_based</code> was used.</h3>
-<h3 id="4-mutual-information-mutual-information-mi-between-two-random-variables-is-a-non-negative-value-which-measures-the-dependency-between-the-variables-it-is-equal-to-zero-if-and-only-if-two-random-variables-are-independent-and-higher-values-mean-higher-dependency-here-the-implementation-from-sklearnfeatureselectionmutualinfoclassif-which-estimated-the-dependency-with-the-discrete-categorical-target-variable-similarly-parameters-with-20-and-10-highest-mi-values-were-tested">4. <strong>Mutual Information</strong>: mutual information (MI) between two random variables is a non-negative value, which measures the dependency between the variables. It is equal to zero if and only if two random variables are independent, and higher values mean higher dependency. Here, the implementation from <code>sklearn.feature_selection.mutual_info_classif</code> which estimated the dependency with the discrete (categorical) target variable. Similarly, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> <em><strong>highest</strong></em> MI values were tested.</h3>
-<h3 id="after-the-selection-of-the-most-relevant-features-using-one-of-the-aforementioned-methods-at-a-time-the-prototypes-per-schizophrenic-and-healthy-group-are-created-and-compared-with-individual-vectors-using-three-similarity-measures">After the selection of the most relevant features using one of the aforementioned methods at a time, the prototypes per schizophrenic and healthy group are created and compared with individual vectors using three similarity measures.</h3>
+<h3 id="rqa-parameters-selection"><strong>RQA parameters selection</strong></h3>
+<p>Additionally, the selection of the RQA parameters was performed to find values significant for the distinction between healthy and schizophrenic groups. The intuition is to select those parameters which are helpful for the further classification and discard those which introduce noise into the dataset. The following approaches were tested:</p>
+<p>1. <strong>Absolute difference between the prototypes</strong>: prototypes for healthy and schizophrenic groups were subtracted from each other. The fraction of the highest absolute difference values were used for the similarity calculations. Here, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> highest values were tested.</p>
+<p>2. <strong>Statistical tests</strong>: to find the parameters values which differ significantly between healthy and schizophrenic groups, two statistical tests were used: <em><strong>t-test</strong></em> and <em><strong>U Mann-Whitney test</strong></em>. Since hundreds of parameters were tested, corrections for multiple comparisons were used: <em><strong>Bonferroni</strong></em> and <em><strong>Benjamini-Hochberg FDR</strong></em>. In total using this approach 4 possible combinations of selected parameters were tested.</p>
+<p>3. <strong>Fisher's score</strong>: calculated as the ratio of between-group and within-group variance. A higher Fisher's Score implies the parameter is more discriminative and valuable for classification. Fraction of the parameters with the <em><strong>highest rank</strong></em> were chosen, here <em><strong>20%</strong></em> and <em><strong>10%</strong></em>. The implementation from <code>skfeature.function.similarity_based</code> was used.</p>
+<p>4. <strong>Mutual Information</strong>: mutual information (MI) between two random variables is a non-negative value, which measures the dependency between the variables. It is equal to zero if and only if two random variables are independent, and higher values mean higher dependency. Here, the implementation from <code>sklearn.feature_selection.mutual_info_classif</code> which estimated the dependency with the discrete (categorical) target variable. Similarly, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> <em><strong>highest</strong></em> MI values were tested.</p>
+<p>After the selection of the most relevant features using one of the aforementioned methods at a time, the prototypes per schizophrenic and healthy group are created and compared with individual vectors using three similarity measures.</p>
 <center><img src="images/microstates_prototype_classification/selected_common_features.png" alt="common features" width="450"><center>
 <p>Figure 3: Common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values. It is worth noting that repeating RQA values indicating significance for the healthy-schizophrenic distinction most frequently come from microstate 1 and 6.</p>
 <center><img src="images/microstates_prototype_classification/selected_features_per_method.png" alt="common features" width="450"><center>
 <p>Figure 4: Distribution of common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values.</p>
-<h2 id="classification"><strong>Classification</strong></h2>
-<h3 id="the-models-were-prepared-using-the-following-classifiers">The models were prepared using the following classifiers:</h3>
-<h3 id="logistic-regression">- <strong>Logistic Regression</strong>,</h3>
-<h3 id="random-forest">- <strong>Random Forest</strong>,</h3>
-<h3 id="support-vector-machine-two-kernels-were-used---linear-and-rbf-with-default-parameters">- <strong>Support Vector Machine</strong>: two kernels were used - <em><strong>linear</strong></em> and <em><strong>rbf</strong></em> with default parameters.</h3>
-<h3 id="evaluated-using-5-fold-crossvalidation-and-metrics">evaluated using 5-fold crossvalidation and metrics:</h3>
-<h3 id="accuracy">- <strong>Accuracy</strong></h3>
-<h3 id="roc-curve-auc">- <strong>ROC curve AUC</strong></h3>
-<h3 id="in-total-120-models-10-x-3-similarity-measures-x-4-classifiers-were-evaluated-below-are-described-the-best-classification-results-for-each-similarity-metric">In total 120 models (10 x 3 similarity measures x 4 classifiers) were evaluated. Below are described the best classification results for each similarity metric.</h3>
+<h3 id="classification"><strong>Classification</strong></h3>
+<p>The models were prepared using the following classifiers:</p>
+<p>- <strong>Logistic Regression</strong>,</p>
+<p>- <strong>Random Forest</strong>,</p>
+<p>- <strong>Support Vector Machine</strong>: two kernels were used - <em><strong>linear</strong></em> and <em><strong>rbf</strong></em> with default parameters.</p>
+<p>evaluated using 5-fold crossvalidation and metrics:</p>
+<p>- <strong>Accuracy</strong></p>
+<p>- <strong>ROC curve AUC</strong></p>
+<p>In total 120 models (10 x 3 similarity measures x 4 classifiers) were evaluated. Below are described the best classification results for each similarity metric.</p>
 <ul>
 <li>
-<h3 id="euclidean-distance"><strong>Euclidean distance</strong></h3>
+<p><strong>Euclidean distance</strong></p>
 </li>
 </ul>
 <table>
@@ -607,17 +625,28 @@ Figure 2: Correlation values between each individual vector and schizophrenic as
 </tbody>
 </table>
 <p>Table 5.2. Summary of the highest mean accuracy scores across all used classifiers and selection method using features from correlation metric.</p>
-<h3 id="the-highest-scores-taking-into-account-performance-of-all-classifiers-together-were-0873-for-the-roc-auc-metric-and-0834-for-the-accuracy-both-for-the-correlation-similarity-metric-for-the-single-classifier-highest-roc-auc-value-was-0876-for-the-svm-rbf-and-cosine-metric-while-the-highest-accuracy-was-the-same---0834-it-is-worth-noticing-the-variability-of-the-scores-is-low-the-mean-roc-auc-across-all-models-is-0793-with-standard-deviation-0117-while-the-mean-accuracy-is-073-with-standard-deviation-0082">The highest scores, taking into account performance of all classifiers together, were <em><strong>0.873 for the ROC AUC metric</strong></em> and <em><strong>0.834 for the accuracy</strong></em>, both for the correlation similarity metric. For the single classifier highest ROC AUC value was <em><strong>0.876</strong></em> for the <em><strong>SVM rbf</strong></em> and <em><strong>cosine metric</strong></em> while the highest accuracy was the same - 0.834. It is worth noticing the variability of the scores is low. The mean ROC AUC across all models is 0.793 with standard deviation 0.117 while the mean accuracy is 0.73 with standard deviation 0.082.</h3>
+<p>The highest scores, taking into account performance of all classifiers together, were <em><strong>0.873 for the ROC AUC metric</strong></em> and <em><strong>0.834 for the accuracy</strong></em>, both for the correlation similarity metric. For the single classifier highest ROC AUC value was <em><strong>0.876</strong></em> for the <em><strong>SVM rbf</strong></em> and <em><strong>cosine metric</strong></em> while the highest accuracy was the same - 0.834. It is worth noticing the variability of the scores is low. The mean ROC AUC across all models is 0.793 with standard deviation 0.117 while the mean accuracy is 0.73 with standard deviation 0.082.</p>
 <center><img src="images/microstates_prototype_classification/KDE_acc.png" alt="common features" width="450"><center>
 Figure 5: Probability density curves of the mean accuracies per classifier type.
 <center><img src="images/microstates_prototype_classification/KDE_auc.png" alt="common features" width="450"><center>
 Figure 6: Probability density curves of the mean ROC AUC score per classifier type.
-<h3 id="the-feature-selection-procedures-seems-to-slightly-improve-the-classification-scores-to-lesser-extent-in-case-of-the-roc-auc-metric-from-0845-to-087-and-to-more-severely-in-case-of-accuracy-from-0763-to-0834">The feature selection procedures seems to slightly improve the classification scores, to lesser extent in case of the <em><strong>ROC AUC metric: from 0.845 to 0.87</strong></em> and to more severely in case of <em><strong>accuracy: from 0.763 to 0.834</strong></em>.</h3>
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<!-- <script src="assets/js/util.js"></script> -->
-<script src="assets/js/main.js"></script>
-</body>
+<p>The feature selection procedures seems to slightly improve the classification scores, to lesser extent in case of the <em><strong>ROC AUC metric: from 0.845 to 0.87</strong></em> and to more severely in case of <em><strong>accuracy: from 0.763 to 0.834</strong></em>.</p>
+
+
+								</div>
+							</div>
+
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
