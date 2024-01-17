@@ -39,7 +39,7 @@
 									<h2 id="dataset"><strong>Dataset</strong></h2>
 <p>Microstates analysis returns a backfitted sequence of stable patterns of EEG activity on the level of the scalp. Having this sequence for each subject, one can transform it into recurrence matrix of the states in order to obtain the parameters of the recurrence quantification analysis (RQA) (Figure 1).</p>
 <center><img src="images/microstates_prototype_classification/S10W1_modkmean16_microstates_colorprots_2sec_split_prots_new.png" alt="recurrence prototypes" width="1000"></center>
-<left>Figure 1: Exemplary recurrence matrix from sequence of microstates prototypes of 0-2 s interval.
+<left><i>Figure 1.</i>: Exemplary recurrence matrix from sequence of microstates prototypes of 0-2 s interval.
 
 <p>For each prototype, RQA values are calculated by selecting only the occurences of one prototype and assigning the ones while zeroing the occurences of others. Thus, after the analysis 240 RQA values are obtained (16 prototypes x 15 parameters) for each of the 84 participants (45 schizophrenic and 39 healthy).</p>
 <table>
@@ -132,7 +132,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 1: First five rows of the dataset of RQA parameters from microstates prototypes. The values were cleaned from the outliers and normalized (see below).</p>
+<p><i>Table 1.</i>: First five rows of the dataset of RQA parameters from microstates prototypes. The values were cleaned from the outliers and normalized (see below).</p>
 <h3 id="preprocessing"><strong>Preprocessing</strong></h3>
 <p>Before the analysis the dataset was checked for the presence of outliers, which could potentialy bias the final results. For this purpose, IQR method was used which defines as outliers values outside:</p>
 <p>- <strong>lower threshold</strong>: Q1 - 1.5xIQR</p>
@@ -221,9 +221,9 @@
 </tr>
 </tbody>
 </table>
-<p>Table 2: First five rows of the exemplary values of the similarity measures used as features for classification</p></left>
+<p><i>Table 2.</i>: First five rows of the exemplary values of the similarity measures used as features for classification</p></left>
 <center><img src="images/microstates_prototype_classification/feature_scatter_correlation.png" alt="features scatter" width="1000"></center>
-<left>Figure 2: Correlation values between each individual vector and schizophrenic as well as healthy prototypes.
+<left><i>Figure 2.</i>: Correlation values between each individual vector and schizophrenic as well as healthy prototypes.
 
 <h3 id="rqa-parameters-selection"><strong>RQA parameters selection</strong></h3>
 <p>Additionally, the selection of the RQA parameters was performed to find values significant for the distinction between healthy and schizophrenic groups. The intuition is to select those parameters which are helpful for the further classification and discard those which introduce noise into the dataset. The following approaches were tested:</p>
@@ -233,9 +233,9 @@
 <p>4. <strong>Mutual Information</strong>: mutual information (MI) between two random variables is a non-negative value, which measures the dependency between the variables. It is equal to zero if and only if two random variables are independent, and higher values mean higher dependency. Here, the implementation from <code>sklearn.feature_selection.mutual_info_classif</code> which estimated the dependency with the discrete (categorical) target variable. Similarly, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> <em><strong>highest</strong></em> MI values were tested.</p>
 <p>After the selection of the most relevant features using one of the aforementioned methods at a time, the prototypes per schizophrenic and healthy group are created and compared with individual vectors using three similarity measures.</p>
 </left><center><img src="images/microstates_prototype_classification/selected_common_features.png" alt="common features" width="1000"></center>
-<p>Figure 3: Common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values. It is worth noting that repeating RQA values indicating significance for the healthy-schizophrenic distinction most frequently come from microstate 1 and 6.</p>
+<p><i>Figure 3.</i>: Common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values. It is worth noting that repeating RQA values indicating significance for the healthy-schizophrenic distinction most frequently come from microstate 1 and 6.</p>
 <center><img src="images/microstates_prototype_classification/selected_features_per_method.png" alt="common features" width="1000"></center>
-<p>Figure 4: Distribution of common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values.</p>
+<p><i>Figure 4.</i>: Distribution of common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values.</p>
 <h3 id="classification"><strong>Classification</strong></h3>
 <p>The models were prepared using the following classifiers:</p>
 <p>- <strong>Logistic Regression</strong>,</p>
@@ -310,7 +310,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 3.1. Summary of the highest mean ROC AUC scores across all used classifiers and selection method using features from euclidean distance metric.</p>
+<p><i>Table 3.1.</i>: Summary of the highest mean ROC AUC scores across all used classifiers and selection method using features from euclidean distance metric.</p>
 <table>
 <thead>
 <tr>
@@ -371,7 +371,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 3.2. Summary of the highest mean accuracy scores across all used classifiers and selection method using features from euclidean distance metric.</p>
+<p><i>Table 3.2.</i>: Summary of the highest mean accuracy scores across all used classifiers and selection method using features from euclidean distance metric.</p>
 <ul>
 <li>
 <h3 id="cosine-distance"><strong>Cosine distance</strong></h3>
@@ -437,7 +437,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 4.1. Summary of the highest mean ROC AUC scores across all used classifiers and selection method using features from cosine distance metric.</p>
+<p><i>Table 4.1.</i>: Summary of the highest mean ROC AUC scores across all used classifiers and selection method using features from cosine distance metric.</p>
 <table>
 <thead>
 <tr>
@@ -498,7 +498,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 4.2. Summary of the highest mean accuracy scores across all used classifiers and selection method using features from cosine distance metric.</p>
+<p><i>Table 4.2.</i>: Summary of the highest mean accuracy scores across all used classifiers and selection method using features from cosine distance metric.</p>
 <ul>
 <li>
 <h3 id="correlation-metric"><strong>Correlation metric</strong></h3>
@@ -564,7 +564,7 @@
 </tr>
 </tbody>
 </table>
-<p>Table 5.1. Summary of the highest mean ROC AUC scores across all used classifiers and selection method using features from correlation metric.</p>
+<p><i>Table 5.1.</i>: Summary of the highest mean ROC AUC scores across all used classifiers and selection method using features from correlation metric.</p>
 <table>
 <thead>
 <tr>
@@ -625,30 +625,30 @@
 </tr>
 </tbody>
 </table>
-<p>Table 5.2. Summary of the highest mean accuracy scores across all used classifiers and selection method using features from correlation metric.</p>
+<p><i>Table 5.2.</i>: Summary of the highest mean accuracy scores across all used classifiers and selection method using features from correlation metric.</p>
 <p>The highest scores, taking into account performance of all classifiers together, were <em><strong>0.873 for the ROC AUC metric</strong></em> and <em><strong>0.834 for the accuracy</strong></em>, both for the correlation similarity metric. For the single classifier highest ROC AUC value was <em><strong>0.876</strong></em> for the <em><strong>SVM rbf</strong></em> and <em><strong>cosine metric</strong></em> while the highest accuracy was the same - 0.834. It is worth noticing the variability of the scores is low. The mean ROC AUC across all models is 0.793 with standard deviation 0.117 while the mean accuracy is 0.73 with standard deviation 0.082.</p>
 <center><img src="images/microstates_prototype_classification/KDE_acc.png" alt="common features" width="1000"></center>
-Figure 5: Probability density curves of the mean accuracies per classifier type.
+<p><i>Figure 5.</i>: Probability density curves of the mean accuracies per classifier type.</p>
 <center><img src="images/microstates_prototype_classification/KDE_auc.png" alt="common features" width="1000"></center>
-Figure 6: Probability density curves of the mean ROC AUC score per classifier type.
+<p><i>Figure 6.</i>: Probability density curves of the mean ROC AUC score per classifier type.</p>
 
 <p>The feature selection procedures seems to slightly improve the classification scores, to lesser extent in case of the <em><strong>ROC AUC metric: from 0.845 to 0.87</strong></em> and to more severely in case of <em><strong>accuracy: from 0.763 to 0.834</strong></em>.</p>
 
 
-					</div>
-				</div>
+								</div>
+							</div>
 
-		</section>
+					</section>
 
-</div>
+			</div>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
-<script src="assets/js/browser.min.js"></script>
-<script src="assets/js/breakpoints.min.js"></script>
-<script src="assets/js/util.js"></script>
-<script src="assets/js/main.js"></script>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
 
-</body>
+	</body>
 </html>
