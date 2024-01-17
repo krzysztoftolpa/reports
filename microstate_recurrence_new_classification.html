@@ -224,6 +224,7 @@
 <p>Table 2: First five rows of the exemplary values of the similarity measures used as features for classification</p></left>
 <center><img src="images/microstates_prototype_classification/feature_scatter_correlation.png" alt="features scatter" width="1000"></center>
 <left>Figure 2: Correlation values between each individual vector and schizophrenic as well as healthy prototypes.
+
 <h3 id="rqa-parameters-selection"><strong>RQA parameters selection</strong></h3>
 <p>Additionally, the selection of the RQA parameters was performed to find values significant for the distinction between healthy and schizophrenic groups. The intuition is to select those parameters which are helpful for the further classification and discard those which introduce noise into the dataset. The following approaches were tested:</p>
 <p>1. <strong>Absolute difference between the prototypes</strong>: prototypes for healthy and schizophrenic groups were subtracted from each other. The fraction of the highest absolute difference values were used for the similarity calculations. Here, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> highest values were tested.</p>
@@ -630,23 +631,24 @@
 Figure 5: Probability density curves of the mean accuracies per classifier type.
 <center><img src="images/microstates_prototype_classification/KDE_auc.png" alt="common features" width="1000"></center>
 Figure 6: Probability density curves of the mean ROC AUC score per classifier type.
+
 <p>The feature selection procedures seems to slightly improve the classification scores, to lesser extent in case of the <em><strong>ROC AUC metric: from 0.845 to 0.87</strong></em> and to more severely in case of <em><strong>accuracy: from 0.763 to 0.834</strong></em>.</p>
 
 
-								</div>
-							</div>
+					</div>
+				</div>
 
-					</section>
+		</section>
 
-			</div>
+</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
 
-	</body>
+</body>
 </html>
