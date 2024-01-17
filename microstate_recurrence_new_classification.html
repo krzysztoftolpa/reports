@@ -38,7 +38,7 @@
 
 									<h2 id="dataset"><strong>Dataset</strong></h2>
 <p>Microstates analysis returns a backfitted sequence of stable patterns of EEG activity on the level of the scalp. Having this sequence for each subject, one can transform it into recurrence matrix of the states in order to obtain the parameters of the recurrence quantification analysis (RQA) (Figure 1).</p>
-<center><img src="images/microstates_prototype_classification/S10W1_modkmean16_microstates_colorprots_2sec_split_prots_new.png" alt="recurrence prototypes" width="800"></center>
+<center><img src="images/microstates_prototype_classification/S10W1_modkmean16_microstates_colorprots_2sec_split_prots_new.png" alt="recurrence prototypes" width="1000"></center>
 <left>Figure 1: Exemplary recurrence matrix from sequence of microstates prototypes of 0-2 s interval.
 
 <p>For each prototype, RQA values are calculated by selecting only the occurences of one prototype and assigning the ones while zeroing the occurences of others. Thus, after the analysis 240 RQA values are obtained (16 prototypes x 15 parameters) for each of the 84 participants (45 schizophrenic and 39 healthy).</p>
@@ -222,7 +222,7 @@
 </tbody>
 </table>
 <p>Table 2: First five rows of the exemplary values of the similarity measures used as features for classification</p></left>
-<center><img src="images/microstates_prototype_classification/feature_scatter_correlation.png" alt="features scatter" width="800"></center>
+<center><img src="images/microstates_prototype_classification/feature_scatter_correlation.png" alt="features scatter" width="1000"></center>
 <left>Figure 2: Correlation values between each individual vector and schizophrenic as well as healthy prototypes.
 <h3 id="rqa-parameters-selection"><strong>RQA parameters selection</strong></h3>
 <p>Additionally, the selection of the RQA parameters was performed to find values significant for the distinction between healthy and schizophrenic groups. The intuition is to select those parameters which are helpful for the further classification and discard those which introduce noise into the dataset. The following approaches were tested:</p>
