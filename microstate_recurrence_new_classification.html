@@ -231,9 +231,9 @@
 <p>3. <strong>Fisher's score</strong>: calculated as the ratio of between-group and within-group variance. A higher Fisher's Score implies the parameter is more discriminative and valuable for classification. Fraction of the parameters with the <em><strong>highest rank</strong></em> were chosen, here <em><strong>20%</strong></em> and <em><strong>10%</strong></em>. The implementation from <code>skfeature.function.similarity_based</code> was used.</p>
 <p>4. <strong>Mutual Information</strong>: mutual information (MI) between two random variables is a non-negative value, which measures the dependency between the variables. It is equal to zero if and only if two random variables are independent, and higher values mean higher dependency. Here, the implementation from <code>sklearn.feature_selection.mutual_info_classif</code> which estimated the dependency with the discrete (categorical) target variable. Similarly, parameters with <em><strong>20%</strong></em> and <em><strong>10%</strong></em> <em><strong>highest</strong></em> MI values were tested.</p>
 <p>After the selection of the most relevant features using one of the aforementioned methods at a time, the prototypes per schizophrenic and healthy group are created and compared with individual vectors using three similarity measures.</p>
-</left><center><img src="images/microstates_prototype_classification/selected_common_features.png" alt="common features" width="450"></center>
+</left><center><img src="images/microstates_prototype_classification/selected_common_features.png" alt="common features" width="1000"></center>
 <p>Figure 3: Common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values. It is worth noting that repeating RQA values indicating significance for the healthy-schizophrenic distinction most frequently come from microstate 1 and 6.</p>
-<center><img src="images/microstates_prototype_classification/selected_features_per_method.png" alt="common features" width="450"></center>
+<center><img src="images/microstates_prototype_classification/selected_features_per_method.png" alt="common features" width="1000"></center>
 <p>Figure 4: Distribution of common features (repeating at least twice) between 5 selection methods: t-test with fdr correction, U Mann-Whitney test with fdr correction, mutual information criterion, Fisher's score and absolute difference between group prototypes with 20% highest values.</p>
 <h3 id="classification"><strong>Classification</strong></h3>
 <p>The models were prepared using the following classifiers:</p>
@@ -626,9 +626,9 @@
 </table>
 <p>Table 5.2. Summary of the highest mean accuracy scores across all used classifiers and selection method using features from correlation metric.</p>
 <p>The highest scores, taking into account performance of all classifiers together, were <em><strong>0.873 for the ROC AUC metric</strong></em> and <em><strong>0.834 for the accuracy</strong></em>, both for the correlation similarity metric. For the single classifier highest ROC AUC value was <em><strong>0.876</strong></em> for the <em><strong>SVM rbf</strong></em> and <em><strong>cosine metric</strong></em> while the highest accuracy was the same - 0.834. It is worth noticing the variability of the scores is low. The mean ROC AUC across all models is 0.793 with standard deviation 0.117 while the mean accuracy is 0.73 with standard deviation 0.082.</p>
-<center><img src="images/microstates_prototype_classification/KDE_acc.png" alt="common features" width="450"></center>
+<center><img src="images/microstates_prototype_classification/KDE_acc.png" alt="common features" width="1000"></center>
 Figure 5: Probability density curves of the mean accuracies per classifier type.
-<center><img src="images/microstates_prototype_classification/KDE_auc.png" alt="common features" width="450"></center>
+<center><img src="images/microstates_prototype_classification/KDE_auc.png" alt="common features" width="1000"></center>
 Figure 6: Probability density curves of the mean ROC AUC score per classifier type.
 <p>The feature selection procedures seems to slightly improve the classification scores, to lesser extent in case of the <em><strong>ROC AUC metric: from 0.845 to 0.87</strong></em> and to more severely in case of <em><strong>accuracy: from 0.763 to 0.834</strong></em>.</p>
 
