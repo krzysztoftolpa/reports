@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<!--
+	Stellar by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Microstates RQA Classification</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1>Power Prototypes of Schizophrenia and Healthy groups</h1>
+						<p>Here are described the steps to obtain Power Prototypes of Schizophrenia and Healthy groups from the spectrogram representation of the EEG signals per Hz bands.</p>
+					</header>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Content -->
+							<section id="content" class="main">
+								<h2 id="data">Data</h2>
+								<p>We use the open dataset of 84 subjects (39 healthy and 45 schizophrenic) published by Borisov et al. (2005). Subjects performed resting-state condition with eyes closed for one minut. 16 electrodes system was used with a sampling rate 128 Hz, which results in 7680 samples per channel.</p>
+								<h2 id="summed-powers-per-hz">Summed powers per Hz</h2>
+								<p>For each subject and each electrode:</p>
+								<ol>
+								<li>First, the spectrogram is obtained using short-time fourier transform (STFT). We use the following implementation from pytorch:
+								<p><code>signal_tensor = torch.tensor(epoch_, dtype=torch.float)</code></p>
+								<p><code>stft_tensor = torch.stft(signal_tensor,n_fft=n_fft, win_length=win_len, hop_length=1,return_complex=True, window=torch.hann_window(win_len))</code></p>
+								<p><code>sft = torch.abs(stft_tensor).numpy()</code></p></li>
+								</ol>
+								<p>with the following parameters:
+								<p><code>win_len = 256</code></p>
+								<p><code>n_fft = 512</code></p>
+								<p><code>s_rate = 128</code></p>
+								<ol start="2">
+								<li>Subset the values per each Hz interval up to 60 Hz:
+								<p><code>freq_to_take_max = (((n_fft/2)+1)*fmax) / ((s_rate/2)+1)</code></p>
+								<p><code>freq_to_take_min = (((n_fft/2)+1)*fmin) / ((s_rate/2)+1)</code></p></li>
+								<p><code>sft = sft[round(freq_to_take_min):round(freq_to_take_max),::]</code>
+								where <code>freq_to_take_min</code> and <code>freq_to_take_max</code> are accordingly 0 and 1, 1 and 2, 2 and 3,...59 and 60.</p>
+								</ol>
+								<ol start="3">
+								<li>
+								<p>Calculate mean power per Hz - average the values along the frequency axis, to get one dimentional vector.</p>
+								</li>
+								<li>
+								<p>Sum of the mean power per Hz - values of the vector obtained in the previous step are summed. After this step, one value per frequency interval is obtained. The logic of this measure is that high value means that in the frequency interval there was much activity over whole recording (regardless when precisely periods of high activity happened) Similarly, low value corresponds to the fact that throught the whole recording the activity in the frequency interval was small.</p>
+								</li>
+								</ol>
+								<h2 id="standardization">Standardization</h2>
+								<p>In order to be able to compare the obtained summed powers per Hz values between frequencies and subjects, they are standardized using <code>stats.zscore</code> method from <code>scipy</code>. Therefore, per each subject and frequency interval, 16 values (corresponding to electrodes) are transformed in such a way that the mean value is 0 and the standard deviation is 1.</p>
+								<h2 id="calculate-prototypes-per-group">Calculate prototypes per group</h2>
+								<p>The prototypes are calculated by averaging the standardized summed power per Hz values within either Schizophrenic (45 subjects) or Healthy (39 subjects) group. Below the topographic maps for each prototype values are shown:</p>
+								<center><img src="images/powers_per_hz/healthy_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 1.: Healthy prototype - averaged standardized summed powers per Hz intervals for the healthy group (n=39).</p>
+								<center><img src="images/powers_per_hz/schizo_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 2.: Schizophrenic prototype - averaged standardized summed powers per Hz intervals for the schizophrenic group (n=45).</p>
+								<h2 id="contrast-between-groups">Contrast between groups</h2>
+								<p>Finally, prototypic powers can be compared by subtracting the values of the schizophrenic prototype from the healthy ones (Figure 3). This indicates areas and frequencies where on average subject with schizophrenia have higher activity than healthy subjects - shown as blueish, and where they have lower activity - showns as reddish.</p>
+								<center><img src="images/powers_per_hz/difference_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
+								
+									
+</section>
+
+					</div>
+
+				
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
