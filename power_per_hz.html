@@ -29,7 +29,7 @@
 						<!-- Content -->
 							<section id="content" class="main">
 								<h2 id="data">Data</h2>
-								<p>We use the open dataset of 84 subjects (39 healthy and 45 schizophrenic) published by Borisov et al. (2005). Subjects performed resting-state condition with eyes closed for one minut. 16 electrodes system was used with a sampling rate 128 Hz, which results in 7680 samples per channel.</p>
+								<p>We use the open dataset of 84 subjects (39 healthy and 45 schizophrenic) published by Borisov et al. (2005). Subjects performed resting-state condition with eyes closed for one minut. 16 electrodes system was used with a sampling rate 128 Hz, which results in 7680 samples per channel. The data were additionally preprocessed as follows: the signal was referenced to the average and highpass filter and 1hz was applied.</p>
 								<h2 id="summed-powers-per-hz">Summed powers per Hz</h2>
 								<p>For each subject and each electrode:</p>
 								<ol>
@@ -59,7 +59,7 @@
 								</ol>
 								<h2 id="standardization">Standardization</h2>
 								<p>In order to be able to compare the obtained summed powers per Hz values between frequencies and subjects, they are standardized using <code>stats.zscore</code> method from <code>scipy</code>. Therefore, per each subject and frequency interval, 16 values (corresponding to electrodes) are transformed in such a way that the mean value is 0 and the standard deviation is 1.</p>
-								<h2 id="calculate-prototypes-per-group">Calculate prototypes per group</h2>
+								<h2 id="calculate-prototypes-per-group">Prototypes per group</h2>
 								<p>The prototypes are calculated by averaging the standardized summed power per Hz values within either Schizophrenic (45 subjects) or Healthy (39 subjects) group. Below the topographic maps for each prototype values are shown:</p>
 								<center><img src="images/powers_per_hz/healthy_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
 								<p>Figure 1.: Healthy prototype - averaged standardized summed powers per Hz intervals for the healthy group (n=39).</p>
@@ -73,7 +73,7 @@
 								<p>Since standardization described above is performed seperately for each subject, the results reflect differences of activity in relation to other areas on scalp whcih are then averaged to obtain the prototypes for the healthy and schizophrenic group.</p> 
 								<p>Using this method, we are not checking, if subjects of one group have higher or lower activity than the other. We are checking how different is the distribution of the activity on scalp.</p>
 								<p>To investigate whether there are differences in the power values between the schizophrenic and healthy group, standardization was performed only along the frequency axis again using <code>stats.zscore</code>, ie. standard deviation of the whole array 84 subjects x 16 electrodes was 1 and mean was 0.</p>
-								<h2 id="calculate-prototypes-per-group">Calculate prototypes per group</h2>
+								<h2 id="calculate-prototypes-per-group">Prototypes per group</h2>
 								<p>The prototypes are calculated by averaging the standardized summed power per Hz values within each group</p>
 								<center><img src="images/powers_per_hz/healthy_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
 								<p>Figure 4.: Healthy prototype - averaged standardized summed powers per Hz intervals for the healthy group (n=39).</p>
@@ -82,7 +82,33 @@
 								<h2 id="contrast-between-groups">Contrast between groups</h2>
 								<center><img src="images/powers_per_hz/difference_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
 								<p>Figure 6.: Difference Healthy - Schizophrenic prototype for averaged standardized summed powers per Hz intervals</p>
-									
+
+								<h1>Replication of the results on different dataset</h1>
+								<h2>Data</h2>
+								<p>In order to check whether the observations described above can be replicated on a different data, we used Olejarczyk & Jernajczyk (2017) dataset, which consists of 14 schizophrenic and 14 healthy subjects with resting-state eyes closed condition. The signals were aquired using 19 channels EEG system with 250 Hz sampling rate.</p>
+								<p>The data was preprocessed by applying reference to average, filtering 1-100 Hz, followed by notch filter. The bad channels were identified by manual inspection and interpolated. Afterwards, sixty seconds fragment was extracted and resampled to 128 hz. Common channels with the Borisov et al. (2005) dataset were selected.</p>
+								<h2>First standardization method</h2>
+								<h2>Prototypes per group</h2>
+								<center><img src="images/powers_per_hz/olejarczyk_schizodataset/healthy_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 7.: Healthy prototype - averaged standardized summed powers per Hz intervals for the healthy group (n=14).</p>
+								<center><img src="images/powers_per_hz/olejarczyk_schizodataset/schizo_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 8.: Schizophrenic prototype - averaged standardized summed powers per Hz intervals for the schizophrenic group (n=14).</p>
+								<h2>Contrast between groups</h2>
+								<center><img src="images/powers_per_hz/olejarczyk_schizodataset/difference_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 9.: Difference Healthy - Schizophrenic prototype for averaged standardized summed powers per Hz intervals</p>
+								<h2>Second standardization method</h2>
+								<h2 id="calculate-prototypes-per-group">Prototypes per group</h2>
+								<center><img src="images/powers_per_hz/olejarczyk_schizodataset/healthy_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 10.: Healthy prototype - averaged standardized summed powers per Hz intervals for the healthy group (n=14).</p>
+								<center><img src="images/powers_per_hz/olejarczyk_schizodataset/schizo_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 11.: Schizophrenic prototype - averaged standardized summed powers per Hz intervals for the schizophrenic group (n=14).</p>
+								<h2 id="contrast-between-groups">Contrast between groups</h2>
+								<center><img src="images/powers_per_hz/olejarczyk_schizodataset/difference_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 12.: Difference Healthy - Schizophrenic prototype for averaged standardized summed powers per Hz intervals</p>
+								
+								<h2>Summary</h2>
+								
+
 							</section>	
 					</div>
 
