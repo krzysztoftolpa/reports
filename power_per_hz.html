@@ -68,10 +68,22 @@
 								<h2 id="contrast-between-groups">Contrast between groups</h2>
 								<p>Finally, prototypic powers can be compared by subtracting the values of the schizophrenic prototype from the healthy ones (Figure 3). This indicates areas and frequencies where on average subject with schizophrenia have higher activity than healthy subjects - shown as blueish, and where they have lower activity - showns as reddish.</p>
 								<center><img src="images/powers_per_hz/difference_prototype_z_summed_stft.png" alt="recurrence prototypes" width="1100"></center>
-								
+								<p>Figure 3.: Difference Healthy - Schizophrenic prototype for averaged standardized summed powers per Hz intervals</p>
+								<h1>Alternative standardization</h1>
+								<p>Since standardization described above is performed seperately for each subject, the results reflect differences of activity in relation to other areas on scalp whcih are then averaged to obtain the prototypes for the healthy and schizophrenic group.</p> 
+								<p>Using this method, we are not checking, if subjects of one group have higher or lower activity than the other. We are checking how different is the distribution of the activity on scalp.</p>
+								<p>To investigate whether there are differences in the power values between the schizophrenic and healthy group, standardization was performed only along the frequency axis again using <code>stats.zscore</code>, ie. standard deviation of the whole array 84 subjects x 16 electrodes was 1 and mean was 0.</p>
+								<h2 id="calculate-prototypes-per-group">Calculate prototypes per group</h2>
+								<p>The prototypes are calculated by averaging the standardized summed power per Hz values within each group</p>
+								<center><img src="images/powers_per_hz/healthy_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 4.: Healthy prototype - averaged standardized summed powers per Hz intervals for the healthy group (n=39).</p>
+								<center><img src="images/powers_per_hz/schizo_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 5.: Schizophrenic prototype - averaged standardized summed powers per Hz intervals for the schizophrenic group (n=45).</p>
+								<h2 id="contrast-between-groups">Contrast between groups</h2>
+								<center><img src="images/powers_per_hz/difference_prototype_z_summed_stft_alternative.png" alt="recurrence prototypes" width="1100"></center>
+								<p>Figure 6.: Difference Healthy - Schizophrenic prototype for averaged standardized summed powers per Hz intervals</p>
 									
-</section>
-
+							</section>	
 					</div>
 
 				
